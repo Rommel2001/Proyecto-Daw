@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rommel Adolfo Campuzano">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Trabaja con nosotros</title>
+    <style>
+        /*Selector universal*/
+        * {
+            margin: 10;
+        }
+
+        /* Estilos del formulario y uso de flex */
+        .formulario-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .formulario-label {
+            margin-bottom: 8px;
+        }
+
+        /* Estilos para los elementos de entrada (input, textarea, select) */
+        .formulario-input,
+        .formulario-select,
+        .formulario-checkbox,
+        .formulario-boton {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Estilos específicos para el checkbox */
+        .formulario-checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Estilos específicos para el botón */
+        .formulario-boton {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Estilos para el botón en estado de hover, pseudo-clase */
+        .formulario-boton:hover {
+            background-color: #555;
+        }
+
+
+        /* Estilos para elementos de tipo "submit", atributo */
+        [type="submit"] {
+            font-weight: bold;
+        }
+
+        /*Selector de tipo pseudoelemento */
+        .formulario-container::before {
+            content: '*Verificaremos la información enviada*';
+            font-weight: bold;
+            color: rgb(195, 195, 205);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /*Selector ID*/
+        #FormularioPrincipal {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+
+    </nav>
+
+    <div class="formulario-container" id="FormularioPrincipal">
+        <h2 style="text-align: center;">Formulario para formar parte de nuestro equipo</h2>
+        <form novalidate>
+            <label for="nombre" class="formulario-label" style="font-weight: bold;">Nombres:</label>
+            <input type="text" id="nombre" name="nombre" class="formulario-input">
+
+            <label for="correo" class="formulario-label" style="font-weight: bold;">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" class="formulario-input">
+            <div id="error-correo" class="error-message"></div>
+
+            <label for="telefono" class="formulario-label" style="font-weight: bold;">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" class="formulario-input">
+
+            <label for="puesto" class="formulario-label" style="font-weight: bold;" >Puesto de Interés: </label>
+            <select id="puesto" name="puesto" class="formulario-select" >
+                <option value="" disabled selected>Selecciona un puesto...</option>
+                <option value="developer">Asesor de ventas</option>
+                <option value="designer">Gerente</option>
+                <option value="manager">Contador</option>
+            </select>
+
+            <!-- Etiqueta y área de texto -->
+            <label for="experiencia" class="formulario-label" style="font-weight: bold;">Experiencia:</label>
+            <textarea id="experiencia" name="experiencia" rows="4" class="formulario-input"
+                placeholder="Escribe tu experiencia aquí..."></textarea>
+
+            <!-- Etiqueta asociada al input file -->
+            <label for="cv" class="formulario-label" style="font-weight: bold;">Adjuntar CV (PDF):</label>
+            <input type="file" id="cv" name="cv" accept=".pdf" class="formulario-input">
+
+            <label class="formulario-checkbox">
+                <input type="checkbox" name="terminos">
+                He leído y acepto los términos y condiciones.
+            </label>
+            <br>
+            <br>
+            <button type="submit" class="formulario-boton">Enviar</button>
+        </form>
+    </div>
+
+</body>
+
+<footer class="pie-pagina">
+    <div class="footer-contenido">
+        <div class="contacto-info">
+            <h3>Contacto</h3>
+            <p> <strong>Dirección:</strong> Av. 9 de Octubre y Boyaca, Guayaquil</p>
+            <p><strong>Email:</strong> EcuaRaíces@gmail.com</p>
+            <p><strong>Teléfono:</strong> (+593) 998425002</p>
+        </div>
+        <div class="useful-links">
+            <h3>Enlaces útiles</h3>
+            <ul class="link-ordenados">
+                <li class="links"><a href="Inicio.html"> Inicio</a></li>
+                <li class="links"><a href="Alquiler.html">| Propiedades</a></li>
+                <li class="links"><a href="Contactanos.html">| Contacto</a></li>
+                <li class="links"><a href="PreguntasFrecuentes.html">| Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        <div class="redes">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <img src="./imagenes/facebook.png" alt="Logo de facebook" id="facebook">
+                <img src="./imagenes/twitter.png" alt="Logo de x" id="x">
+                <img src="./imagenes/tiktok.png" alt="Logo de tik tok" id="tiktok">
+                <img src="./imagenes/instagram.png" alt="Logo de instagram" id="instagram">
+
+            </div>
+        </div>
+    </div>
+    <p class="copyright">&copy; 2023 Todos los derechos reservados.</p>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtener el formulario y los elementos del formulario
+        var formulario = document.querySelector('form');
+        var nombreInput = document.getElementById('nombre');
+        var correoInput = document.getElementById('correo');
+        var telefonoInput = document.getElementById('telefono');
+        var puestoSelect = document.getElementById('puesto');
+        var experienciaTextarea = document.getElementById('experiencia');
+        var cvInput = document.getElementById('cv');
+        var terminosCheckbox = document.getElementsByName('terminos')[0];
+        var mensajeExito = document.getElementById('mensaje-exito');
+
+        function validarCorreo(correo) {
+            var regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regexCorreo.test(correo);
+        }
+
+        // Función para validar el formulario
+        function validarFormulario(event) {
+            // Verificar que todos los campos estén llenos
+            if (nombreInput.value === '' || correoInput.value === '' || telefonoInput.value === '' ||
+                puestoSelect.value === '' || experienciaTextarea.value === '' || cvInput.value === '' || !terminosCheckbox.checked) {
+                alert('Por favor, completa todos los campos del formulario.');
+                event.preventDefault();
+                return false;
+            }
+
+            // Validar que el nombre contenga solo letras y espacios
+            var regexNombre = /^[A-Za-z\s]+$/;
+            if (!regexNombre.test(nombreInput.value.trim())) {
+                alert('Por favor, ingresa solo letras en el campo de nombres.');
+                event.preventDefault();
+                return false;
+            }
+
+            // Validar correo electrónico
+            var correo = document.getElementById('correo').value;
+            if (!validarCorreo(correo)) {
+                mostrarError('Correo electrónico no válido');
+                event.preventDefault();
+                return false;
+            }
+
+            // Validar extensión del archivo CV
+            var extensionPermitida = /(\.pdf)$/i;
+            if (!extensionPermitida.exec(cvInput.value)) {
+                alert('Por favor, selecciona un archivo PDF para adjuntar.');
+                event.preventDefault();
+                return false;
+            }
+
+            // Mostrar mensaje de éxito y limpiar campos
+            mensajeExito.style.display = 'block';
+            limpiarCampos();
+            event.preventDefault(); // Prevenir el envío del formulario
+        }
+
+        // Agregar el evento de envío del formulario
+        formulario.addEventListener('submit', validarFormulario);
+
+        function mostrarError(mensaje) {
+            // Muestra el mensaje de error y aplica estilos
+            var errorCorreo = document.getElementById('error-correo');
+            errorCorreo.textContent = mensaje;
+            errorCorreo.style.color = 'red'; // Color del mensaje de error
+            errorCorreo.style.display = 'block';
+        }
+
+        function limpiarCampos() {
+            // Limpiar todos los campos del formulario
+            nombreInput.value = '';
+            correoInput.value = '';
+            telefonoInput.value = '';
+            puestoSelect.value = '';
+            experienciaTextarea.value = '';
+            cvInput.value = '';
+            terminosCheckbox.checked = false;
+
+            document.getElementById('error-correo').style.display = 'none';
+        }
+    });
+
+</script>
+
+</html>

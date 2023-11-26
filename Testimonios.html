@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Clavijo Calderon Sandy Lady">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Testimonios</title>
+    <style>
+        /*Selector universal*/
+        * {
+            margin: 10;
+        }
+
+        /*Selector de clases*/
+        .contenedor-testimonios {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            /* Alinear los testimonios en la parte superior */
+            text-align: center;
+
+        }
+
+        /*Selector de tipo*/
+        h2 {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        /*Selector ID*/
+        #texto {
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            font-size: 40px;
+        }
+
+        /* Selector de atributo */
+        .testimonio[data-important="true"] {
+            border: 2px solid #ff0000;
+        }
+
+        .testimonio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+            height: 750px;
+        }
+
+        /*Selector pseudoelemento*/
+        .contenedor-testimonios p::after {
+            content: ' (EcuaRaíces donde tus sueños se cumplen)';
+            /* Contenido adicional al final de cada párrafo */
+            color: #333;
+            font-style: italic;
+            font-size: 0.8em;
+            /* Otros estilos que desees agregar */
+        }
+
+
+        .imagen {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            background-color: transparent;
+        }
+
+        .nombre {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .descripcion {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .calificacion {
+            display: flex;
+            justify-content: center;
+        }
+
+        .estrella {
+            color: #ffd700;
+            margin: 0 2px;
+        }
+
+        .boton-publicar {
+            position: absolute;
+            top: 90px;
+            right: 20px;
+            display: block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /*Selector pseudoclase*/
+        .boton-publicar:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+
+    </nav>
+
+
+    <a class="boton-publicar" href="PublicarTestimonio.html">Publica el tuyo</a>
+    <div class="contenedor-testimonios">
+        <h2 id="texto" style="text-align: center;">Testimonios</h2> <!--Estilo en linea-->
+        <div class="testimonio" data-important="true">
+            <img class="imagen" src="imagenes/Persona1.jpg" alt="Persona 1">
+            <br>
+            <div class="nombre">Ricardo Peña Mariño</div>
+            <div class="descripcion">
+                <p style="text-align: center;">
+                    "Mi experiencia con EcuaRaíces ha sido absolutamente transformadora. Desde el primer
+                    contacto
+                    hasta
+                    la entrega de las llaves, el equipo ha demostrado un compromiso excepcional. Al adquirir
+                    mi
+                    primera
+                    casa, sentí un respaldo constante y una guía experta en cada paso del proceso. La
+                    transparencia
+                    en
+                    la información y la diligencia en la resolución de trámites me dieron confianza y
+                    tranquilidad.
+                    EcuaRaíces no solo cumplió con mis expectativas, sino que las superó, brindándome no
+                    solo
+                    una
+                    vivienda, sino un hogar donde crear memorias invaluables. Recomiendo con entusiasmo a
+                    quienes
+                    buscan
+                    un servicio confiable y personalizado."
+                </p>
+            </div>
+            <h3>Califacion:</h3>
+            <div class="calificacion">
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+            </div>
+        </div>
+
+        <div class="testimonio">
+            <!-- Testimonio 2 -->
+            <img class="imagen" src="imagenes/Persona2.jpg" alt="Persona 2">
+            <br>
+            <div class="nombre">Angelo Peñaherrera Vargas</div>
+            <div class="descripcion">
+                <p style="text-align: center;">
+                    "Al alquilar a través de EcuaRaíces, descubrí un nivel de profesionalismo y eficiencia
+                    que
+                    marcó
+                    la diferencia. Desde la primera visita a la propiedad hasta la firma del contrato, el
+                    equipo
+                    se
+                    destacó por su atención personalizada y conocimiento del mercado. Cada pregunta fue
+                    respondida
+                    con paciencia y detalle, creando una experiencia sin complicaciones. La transparencia en
+                    los
+                    términos del contrato y la calidad de las propiedades disponibles reflejan un compromiso
+                    genuino
+                    con la satisfacción del cliente. Estoy encantado con mi nuevo hogar y agradezco a
+                    EcuaRaíces
+                    por
+                    hacer posible esta transición sin problemas."
+                </p>
+            </div>
+            <h3>Califacion:</h3>
+            <div class="calificacion">
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+            </div>
+        </div>
+
+        <div class="testimonio" data-important="true">
+            <!-- Testimonio 3 -->
+            <img class="imagen" src="imagenes/Persona3.jpg" alt="Persona 3">
+            <br>
+            <div class="nombre">Luis González Almirón</div>
+            <div class="descripcion">
+                <p style="text-align: center;">
+                    "La elección de EcuaRaíces para comprar nuestra casa fue la mejor decisión que podríamos
+                    haber
+                    tomado. Desde el inicio, el equipo se mostró dedicado a entender nuestras necesidades y
+                    preferencias, facilitándonos opciones que se ajustaban perfectamente a lo que
+                    buscábamos. La
+                    asesoría personalizada y la disponibilidad constante para resolver dudas nos brindaron
+                    seguridad
+                    en todo el proceso. La eficiencia en la gestión de trámites y la transparencia en la
+                    información
+                    nos permitieron tomar decisiones informadas. Ahora, disfrutamos de nuestro hogar,
+                    agradecidos
+                    por la profesionalidad y el compromiso de EcuaRaíces."
+                </p>
+            </div>
+            <h3>Califacion:</h3>
+            <div class="calificacion">
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+            </div>
+        </div>
+
+        <div class="testimonio">
+            <!-- Testimonio 4 -->
+            <img class="imagen" src="imagenes/Persona4.jpg" alt="Persona 4">
+            <br>
+            <div class="nombre">Leonardo Moreno Yepez</div>
+            <div class="descripcion">
+                <p style="text-align: center;">
+                    "Al confiar en EcuaRaíces para encontrar mi nuevo hogar, experimenté un servicio
+                    excepcional
+                    que
+                    superó mis expectativas. La atención personalizada y la amplia oferta de propiedades
+                    disponibles
+                    hicieron que el proceso de búsqueda fuera emocionante y sin estrés. La claridad en los
+                    términos
+                    del contrato y la eficiencia en la gestión de trámites fueron aspectos destacados de mi
+                    experiencia. EcuaRaíces no solo se preocupó por cerrar la transacción, sino que demostró
+                    un
+                    interés genuino en mi satisfacción a largo plazo. Estoy encantado con mi nueva casa y
+                    agradezco
+                    a EcuaRaíces por hacer posible este emocionante capítulo en mi vida."
+                </p>
+            </div>
+            <h3>Califacion:</h3>
+            <div class="calificacion">
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<footer class="pie-pagina">
+    <div class="footer-contenido">
+        <div class="contacto-info">
+            <h3>Contacto</h3>
+            <p> <strong>Dirección:</strong> Av. 9 de Octubre y Boyaca, Guayaquil</p>
+            <p><strong>Email:</strong> EcuaRaíces@gmail.com</p>
+            <p><strong>Teléfono:</strong> (+593) 998425002</p>
+        </div>
+        <div class="useful-links">
+            <h3>Enlaces útiles</h3>
+            <ul class="link-ordenados">
+                <li class="links"><a href="Inicio.html"> Inicio</a></li>
+                <li class="links"><a href="Alquiler.html">| Propiedades</a></li>
+                <li class="links"><a href="Contactanos.html">| Contacto</a></li>
+                <li class="links"><a href="PreguntasFrecuentes.html">| Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        <div class="redes">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <img src="./imagenes/facebook.png" alt="Logo de facebook" id="facebook">
+                <img src="./imagenes/twitter.png" alt="Logo de x" id="x">
+                <img src="./imagenes/tiktok.png" alt="Logo de tik tok" id="tiktok">
+                <img src="./imagenes/instagram.png" alt="Logo de instagram" id="instagram">
+
+            </div>
+        </div>
+    </div>
+    <p class="copyright">&copy; 2023 Todos los derechos reservados.</p>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const testimonios = document.querySelectorAll(".testimonio");
+
+        testimonios.forEach(testimonio => {
+            testimonio.addEventListener("mouseover", function () {
+                testimonio.style.transform = "scale(1.02)";
+                testimonio.style.cursor = "pointer";
+            });
+
+            testimonio.addEventListener("mouseout", function () {
+                testimonio.style.transform = "scale(1)";
+                testimonio.style.cursor = "default";
+            });
+        });
+    });
+</script>
+
+</html>

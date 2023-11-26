@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rommel Adolfo Campuzano">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Nuestra historia</title>
+    <style>
+        /*Selector universal*/
+        * {
+            margin: 10;
+        }
+
+        /* Estilos para la sección Quiénes Somos */
+        .quienes-somos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .speech {
+            flex-basis: 60%;
+        }
+
+        .speech h2 {
+            color: #333;
+        }
+
+        .speech p {
+            color: #666;
+            text-align: justify;
+        }
+
+        .imagen img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Estilos para la sección "Nuestro Viaje a Través de los Años" */
+        .nuestro-viaje {
+            text-align: center;
+            padding: 20px 20px;
+            width: auto;
+            height: auto;
+            background-color: #f8f8f8;
+            margin-bottom: 30px;
+        }
+
+        .nuestro-viaje h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .carrusel {
+            display: flex;
+            /*Uso de maquetacion flex*/
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imagen-container {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 5px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .imagen-container img {
+            width: 100%;
+            height: 200px;
+            transition: transform 0.8s ease;
+        }
+
+
+        .imagen-container:hover img {
+            transform: scale(1.1);
+            cursor: pointer;
+            /* cambiar el cursor al pasar sobre la imagen */
+
+        }
+
+        .carrusel:hover {
+            cursor: default;
+            /* Cambia el cursor de nuevo al estilo predeterminado cuando sale del carrusel */
+        }
+
+        /* Estilos para el modal */
+        #imagenModal {
+            /*Selector Id*/
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        #modalContenido {
+            margin: auto;
+            display: flex;
+        }
+
+        #modalImagen {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+        }
+
+        #modalTexto {
+            margin: auto;
+            padding: 20px;
+            color: white;
+            text-align: left;
+        }
+
+        /* Pseudo-elemento para estilizar la primera letra de los párrafos */
+        .speech p::first-letter {
+            font-size: 1.5em;
+            color: #0066cc;
+        }
+
+        /* Pseudo-clase para estilizar enlaces no visitados */
+        a:link {
+            color: #ff6600;
+            text-decoration: none;
+        }
+
+        /* Pseudo-clase para estilizar enlaces visitados */
+        a:visited {
+            color: white;
+        }
+
+        /* Pseudo-clase para estilizar enlaces al pasar el mouse sobre ellos */
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Selector de atributos para estilizar imágenes con alt */
+        img[alt] {
+            border: 2px solid #339966;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+
+    </nav>
+
+    <section class="quienes-somos">
+        <div class="speech">
+            <h2 style="text-align: left;">Quiénes Somos</h2> <!-- estilo en linea-->
+            <p>
+                Bienvenidos a EcuaRaíces, una empresa con más de 40 años de historia que comenzó su trayectoria en la
+                hermosa ciudad de Guayaquil en el año 1983. Desde entonces, nos hemos especializado en ofrecer
+                soluciones inmobiliarias de alta calidad, estableciéndonos como un referente en el sector.
+
+                Nos enorgullece contar con un equipo comprometido y experimentado, cuya principal misión es brindarle el
+                mejor servicio adaptado a sus necesidades específicas. Creemos en la importancia de comprender las
+                expectativas y sueños de nuestros clientes, y trabajamos arduamente para convertir esas aspiraciones en
+                realidades.
+
+                En EcuaRaíces, entendemos que la búsqueda de un hogar o inversión ideal es una decisión significativa.
+                Por ello, nos esforzamos por proporcionarle un acompañamiento personalizado a lo largo de todo el
+                proceso. Ya sea que esté buscando su primera casa, un espacio comercial o una propiedad de inversión,
+                estamos aquí para guiarle y asegurarnos de que tome decisiones informadas.
+
+                Nuestra larga trayectoria en el mercado inmobiliario nos ha permitido acumular una valiosa experiencia y
+                conocimiento. Este bagaje nos
+
+                convierte en un socio confiable para aquellos que confían en nosotros para
+                sus transacciones inmobiliarias. Somos testigos del crecimiento y desarrollo de comunidades, y nos
+                enorgullece ser parte del proceso que conecta a las personas con los espacios que llamarán hogar.
+
+                En EcuaRaíces, cada cliente es único y valoramos las relaciones a largo plazo. Nuestra filosofía se
+                centra en la transparencia, la ética y la excelencia en el servicio. Trabajamos incansablemente para
+                mantenernos actualizados con las tendencias del mercado y ofrecerle las mejores opciones disponibles.
+
+                Nuestro compromiso va más allá de la transacción inmobiliaria; nos esforzamos por construir relaciones
+                duraderas basadas en la confianza mutua. En cada interacción, buscamos superar las expectativas y
+                brindarle un servicio que marque la diferencia.
+
+                A lo largo de los años, hemos visto evolucionar el mercado inmobiliario y nos hemos adaptado a los
+                cambios para seguir siendo líderes en nuestro sector. En EcuaRaíces, nos emociona continuar siendo parte
+                de su historia y ayudarle a escribir el próximo capítulo en su viaje inmobiliario. Gracias por
+                considerarnos como su socio confiable en bienes raíces. ¡Bienvenidos a EcuaRaíces, donde su sueño
+                inmobiliario se convierte en realidad!
+            </p>
+        </div>
+        <div class="imagen">
+            <img src="imagenes/carrusel1.jpg" alt="nuestra historia">
+        </div>
+    </section>
+
+    <section class="nuestro-viaje">
+        <h2>Conoce mas sobre nuestras ofertas mas recientes</h2>
+        <div class="carrusel">
+            <!-- Agrega las imágenes del carrusel aquí -->
+            <div class="imagen-container" onclick="abrirModal(0)">
+                <img src="imagenes/carrusel2.jpg" alt="Imagen 1">
+            </div>
+            <div class="imagen-container" onclick="abrirModal(1)">
+                <img src="imagenes/carrusel3.jpg" alt="Imagen 2">
+            </div>
+            <div class="imagen-container" onclick="abrirModal(2)">
+                <img src="imagenes/carrusel4.jpg" alt="Imagen 3">
+            </div>
+            <div class="imagen-container" onclick="abrirModal(3)">
+                <img src="imagenes/carrusel6.jpg" alt="Imagen 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="imagenModal" class="modal" onclick="cerrarModal()">
+        <div id="modalContenido">
+            <img id="modalImagen" class="modal-content" src="" alt="Modal">
+            <div id="modalTexto"></div>
+        </div>
+    </div>
+
+
+
+
+</body>
+<footer class="pie-pagina">
+    <div class="footer-contenido">
+        <div class="contacto-info">
+            <h3>Contacto</h3>
+            <p> <strong>Dirección:</strong> Av. 9 de Octubre y Boyaca, Guayaquil</p>
+            <p><strong>Email:</strong> EcuaRaíces@gmail.com</p>
+            <p><strong>Teléfono:</strong> (+593) 998425002</p>
+        </div>
+        <div class="useful-links">
+            <h3>Enlaces útiles</h3>
+            <ul class="link-ordenados">
+                <li class="links"><a href="Inicio.html"> Inicio</a></li>
+                <li class="links"><a href="Alquiler.html">| Propiedades</a></li>
+                <li class="links"><a href="Contactanos.html">| Contacto</a></li>
+                <li class="links"><a href="PreguntasFrecuentes.html">| Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        <div class="redes">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <img src="./imagenes/facebook.png" alt="Logo de facebook" id="facebook">
+                <img src="./imagenes/twitter.png" alt="Logo de x" id="x">
+                <img src="./imagenes/tiktok.png" alt="Logo de tik tok" id="tiktok">
+                <img src="./imagenes/instagram.png" alt="Logo de instagram" id="instagram">
+
+            </div>
+        </div>
+    </div>
+    <p class="copyright">&copy; 2023 Todos los derechos reservados.</p>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Configura el carrusel
+        const carrusel = document.querySelector('.carrusel');
+        let imagenIndex = 0;
+
+        // Función para cambiar la imagen del carrusel
+        function cambiarImagen() {
+            imagenIndex++;
+            if (imagenIndex >= carrusel.children.length) {
+                imagenIndex = 0;
+            }
+            actualizarTransform();
+        }
+
+        // Función para actualizar la transformación en el carrusel
+        function actualizarTransform() {
+            const transformValue = `translateX(-${imagenIndex * 100}%)`;
+            carrusel.style.transform = transformValue;
+        }
+
+        // Función para abrir el modal con la imagen y texto correspondientes
+        window.abrirModal = function (index) {
+            const modal = document.getElementById('imagenModal');
+            const modalImg = document.getElementById('modalImagen');
+            const modalText = document.getElementById('modalTexto');
+
+            // Establecer la imagen y texto en el modal
+            modalImg.src = carrusel.children[index].querySelector('img').src;
+            modalText.textContent = obtenerTextoModal(index);
+
+            // Ajustar el tamaño máximo de la imagen en el modal (puedes cambiar el valor según tus necesidades)
+            modalImg.style.maxWidth = '100%';
+            modalImg.style.maxHeight = '80vh'; // 80% de la altura visible del dispositivo
+
+            // Mostrar el modal
+            modal.style.display = 'block';
+        };
+
+        // Cierra el modal al hacer clic fuera de la imagen
+        window.cerrarModal = function () {
+            const modal = document.getElementById('imagenModal');
+            modal.style.display = 'none';
+        };
+
+    });
+
+    // Función para obtener el texto correspondiente al índice de la imagen
+    function obtenerTextoModal(index) {
+        switch (index) {
+            case 0:
+                return `Esta oficina se encuentra ubicada en el edificio Point en Guayaquil, un edificio de oficinas de lujo ubicado en el Puerto Santa Ana. El edificio cuenta con todas las comodidades que un profesional necesita, incluyendo seguridad las 24 horas, acceso controlado y estacionamiento subterráneo. La oficina en sí es de 85 metros cuadrados y cuenta con aire acondicionado en las oficinas, 1 baño y 300 estacionamientos en todo el edificio.
+                         La oficina está equipada con muebles, minibar, cocina, mesa recreativa, etc. Esta oficina es ideal para una empresa de desarrollo de software. La ubicación es perfecta para acceder a los principales puntos de interés de la ciudad, y el espacio es suficiente para acomodar a una pequeña o mediana empresa. El precio de esta oficina es de 800$. Si están interesados en obtener más información, no duden en contactarnos.`;
+            case 1:
+                return `Nuestra segunda ubicación se encuentra en el corazón de Quito, en el distrito financiero. Este moderno espacio de oficinas ofrece vistas impresionantes de la ciudad y está rodeado de restaurantes, cafeterías y tiendas. Con 120 metros cuadrados, esta oficina es espaciosa y cuenta con una elegante área de recepción, salas de reuniones equipadas y estacionamiento para los inquilinos. Además, el edificio cuenta con seguridad las 24 horas y acceso a gimnasio. Esta oficina es perfecta para empresas que buscan una ubicación central y un ambiente profesional. Contáctenos para obtener más detalles sobre esta oferta única.`;
+
+            case 2:
+                return `Presentamos nuestra tercera ubicación en Cuenca, una ciudad conocida por su encanto histórico. La oficina está situada en un edificio renovado con un diseño moderno que conserva elementos arquitectónicos únicos. Con 70 metros cuadrados, esta oficina cuenta con una distribución abierta, mucha luz natural y áreas comunes compartidas. La ubicación es ideal para empresas creativas y startups que buscan un espacio inspirador. Ofrecemos tarifas competitivas y flexibilidad en términos de contrato. Contáctenos para programar una visita y conocer más sobre esta oportunidad.`;
+
+            case 3:
+                return `Nuestra cuarta ubicación se encuentra en Manta, una ciudad costera en constante crecimiento. Esta oficina, con una superficie de 60 metros cuadrados, está ubicada en un moderno complejo de negocios con acceso directo a la playa. La oficina cuenta con un diseño contemporáneo, aire acondicionado y una terraza con vistas al mar. Ofrecemos un ambiente profesional y relajado, perfecto para empresas que buscan un lugar único para trabajar. Póngase en contacto con nosotros para obtener más información sobre esta increíble oportunidad.`;
+
+            default:
+                return '';
+        }
+    }
+</script>
+
+</html>

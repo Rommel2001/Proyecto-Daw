@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Contreras Moreira Erick Alejandro">
+    <link rel="stylesheet" href="CSS/estilos.css"> <!-- Asegúrate de incluir tus estilos CSS -->
+    <title>Cotizaciones - Calcula tu cuota mensual</title>
+    <style>
+        /*Selector universal*/
+        * {
+            margin: 10;
+        }
+
+        /* Estilos para la sección de formulario de cotización */
+        .formulario-cotizacion {
+            margin: 40px;
+            text-align: center;
+        }
+
+        .formulario-cotizacion h1 {
+            color: #333;
+        }
+
+        /* Estilos para el formulario utilizando Grid Layout */
+        .formulario {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .label-container {
+            display: flex;
+            flex-direction: column;
+            align-items: normal;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        /*Selector de agrupacion*/
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="range"] {
+            /*Selector de tipo atributo*/
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        output {
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            /* Selectores de pseudo-clase */
+
+            background-color: #555;
+        }
+
+        /* Selectores de pseudo-clase */
+        input[type="text"]:focus {
+            border: 2px solid #555;
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            border-radius: 10px;
+            width: 300px;
+            max-width: 80%;
+            text-align: center;
+
+        }
+
+        /* Estilo para el fondo oscuro de fondo del modal */
+        .modal-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /*Selector por id*/
+        #cotizacion {
+            border: 2px solid;
+            border-radius: 4px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+
+    </nav>
+
+    <section class="formulario-cotizacion" id="cotizacion">
+        <h1>Calcula tu cuota mensual</h1>
+
+        <form id="cotizacionForm">
+            <label for="costoVivienda">¿Cuánto cuesta la vivienda que deseas comprar?</label>
+            <input type="number" id="costoVivienda" name="costoVivienda" min="15000" placeholder="Min. $15,000">
+
+            <label for="montoPrestamo">¿Cuánto dinero necesitas que te prestemos?</label>
+            <input type="number" id="montoPrestamo" name="montoPrestamo" min="3000" placeholder="Min. $3,000">
+
+            <label for="plazoPago">Plazo de pago (en años)</label>
+            <input type="range" id="plazoPago" name="plazoPago" min="3" max="20" step="1" value="10">
+            <output for="plazoPago" id="plazoPagoOutput">10 años</output>
+
+            <label for="Nombres" style="text-align: left;">Nombres</label><!-- Estilo en linea-->
+
+            <input type="text" id="Nombres" name="Nombres">
+
+            <label for="correoElectronico" style="text-align: left;">Correo Electrónico</label><!-- Estilo en linea-->
+            <input type="text" id="correoElectronico" name="correoElectronico">
+
+            <div class="label-container">
+                <label for="campo3">Reside en Ecuador?</label>
+                <input type="radio" id="campo3Opcion1" name="campo3" value="opcion1">
+                <label for="campo3Opcion1">Sí</label>
+            </div>
+
+            <div class="label-container">
+                <input type="radio" id="campo3Opcion2" name="campo3" value="opcion2">
+                <label for="campo3Opcion2">No</label>
+            </div>
+
+            <button type="submit">Calcular</button>
+        </form>
+    </section>
+
+    <footer class="pie-pagina">
+        <div class="footer-contenido">
+            <div class="contacto-info">
+                <h3>Contacto</h3>
+                <p > <strong>Dirección:</strong> Av. 9 de Octubre y Boyaca, Guayaquil</p>
+                <p><strong>Email:</strong> EcuaRaíces@gmail.com</p>
+                <p><strong>Teléfono:</strong> (+593) 998425002</p>
+            </div>
+            <div class="useful-links">
+                <h3>Enlaces útiles</h3>
+                <ul class="link-ordenados">
+                    <li class="links"><a href="Inicio.html"> Inicio</a></li>
+                    <li class="links"><a href="Alquiler.html">| Propiedades</a></li>
+                    <li class="links"><a href="Contactanos.html">| Contacto</a></li>
+                    <li class="links"><a href="PreguntasFrecuentes.html">| Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="redes">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <img src="./imagenes/facebook.png" alt="Logo de facebook" id="facebook">
+                    <img src="./imagenes/twitter.png" alt="Logo de x" id="x">
+                    <img src="./imagenes/tiktok.png" alt="Logo de tik tok" id="tiktok">
+                    <img src="./imagenes/instagram.png" alt="Logo de instagram" id="instagram">
+    
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2023 Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cotizacionForm = document.getElementById('cotizacionForm');
+            const plazoPagoInput = document.getElementById('plazoPago');
+            const plazoPagoOutput = document.getElementById('plazoPagoOutput');
+            const campo3Opcion1 = document.getElementById('campo3Opcion1');
+
+            function validarCorreoElectronico(correo) {
+                const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regexCorreo.test(correo);
+            }
+
+            plazoPagoInput.addEventListener('input', function () {
+                plazoPagoOutput.textContent = `${this.value} años`;
+            });
+
+            cotizacionForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Validar si reside en Ecuador
+                const resideEnEcuador = campo3Opcion1.checked;
+
+                if (resideEnEcuador) {
+                    // Obtener valores del formulario
+                    const nombres = document.getElementById('Nombres').value;
+                    const correoElectronico = document.getElementById('correoElectronico').value;
+                    const costoVivienda = parseFloat(document.getElementById('costoVivienda').value);
+                    const montoPrestamo = parseFloat(document.getElementById('montoPrestamo').value);
+                    const plazoPago = parseInt(plazoPagoInput.value);
+
+                    // Validar campos obligatorios
+                    if (nombres.trim() === '' || correoElectronico.trim() === '' || isNaN(costoVivienda) || isNaN(montoPrestamo)) {
+                        alert('Por favor, completa todos los campos obligatorios.');
+                        return;
+                    }
+
+                    // Validar formato de correo electrónico
+                    if (!validarCorreoElectronico(correoElectronico)) {
+                        alert('Por favor, ingresa un correo electrónico válido.');
+                        return;
+                    }
+
+                    // Validar valores numéricos positivos
+                    if (costoVivienda < 15000 || montoPrestamo < 3000 || plazoPago < 3 || plazoPago > 20) {
+                        alert('Por favor, ingresa valores válidos para los campos.');
+                        return;
+                    }
+
+                    // Realizar cálculos (puedes personalizar esta lógica)
+                    const cuotaMensual = calcularCuotaMensual(costoVivienda, montoPrestamo, plazoPago);
+
+                    // Mostrar modal con la información
+                    mostrarModal(nombres, correoElectronico, cuotaMensual);
+
+                    // Limpiar campos del formulario
+                    cotizacionForm.reset();
+                } else {
+                    // Mostrar mensaje de no residir en Ecuador
+                    alert('Lo sentimos, no puedes continuar con la cotización porque no resides en Ecuador.');
+                }
+            });
+
+            // Función para calcular la cuota mensual (puedes personalizar esta lógica)
+            function calcularCuotaMensual(costoVivienda, montoPrestamo, plazoPago) {
+                // Lógica de cálculo de cuota mensual (puedes ajustar según tus necesidades)
+                const tasaInteresAnual = 0.09;
+                const tasaInteresMensual = tasaInteresAnual / 12;
+                const plazoEnMeses = plazoPago * 12;
+
+                const cuotaMensual = (montoPrestamo * tasaInteresMensual) / (1 - Math.pow(1 + tasaInteresMensual, -plazoEnMeses));
+
+                return cuotaMensual.toFixed(2);
+            }
+
+            // Función para mostrar el modal con la información
+            function mostrarModal(nombres, correoElectronico, cuotaMensual, años) {
+                const modalContent = `
+                    <p><strong>Nombres: </strong>${nombres}</p> 
+                    <p><strong>Correo Electrónico: </strong>${correoElectronico}</p>
+                    <p><strong>Plazo de Pago: </strong>${plazoPagoOutput.textContent}</p>
+                    <p><strong>Cuota Mensual: </strong>$${cuotaMensual}</p>
+                `;
+
+                // Crear el elemento modal
+                const modal = document.createElement('div');
+                modal.classList.add('modal');
+                modal.innerHTML = modalContent;
+
+                // Crear el botón de cerrar
+                const closeButton = document.createElement('button');
+                closeButton.textContent = 'Cerrar';
+                closeButton.addEventListener('click', function () {
+                    // Cerrar el modal al hacer clic en el botón de cerrar
+                    document.body.removeChild(modal);
+                    document.body.removeChild(modalBackground);
+                });
+
+                // Añadir el botón de cerrar al modal
+                modal.appendChild(closeButton);
+
+                // Crear el fondo oscuro del modal
+                const modalBackground = document.createElement('div');
+                modalBackground.classList.add('modal-background');
+
+                // Añadir el modal y el fondo oscuro al body
+                document.body.appendChild(modalBackground);
+                document.body.appendChild(modal);
+            }
+
+        });
+        //Validar formato del correo
+        function validarCorreoElectronico(correo) {
+            const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regexCorreo.test(correo);
+        }
+
+    </script>
+
+
+</body>
+
+</html>

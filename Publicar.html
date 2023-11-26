@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anguieta Gusqui Mario Israel">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Publicar casa</title>
+    <style>
+        /* Selector universal */
+        * {
+            margin: 10;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        /* Selector de tipos múltiples (input, select, textarea) */
+        input,
+        select,
+        textarea {
+            margin-bottom: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .file-upload {
+            margin-bottom: 16px;
+        }
+
+        .image-preview {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .image-preview img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-bottom: 8px;
+        }
+
+        /* Selector de tipo de atributo */
+        .image-preview img[data-type="thumbnail"] {
+            /* Estilos específicos para imágenes en miniatura */
+            max-width: 100px;
+            max-height: 100px;
+            margin-bottom: 8px;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Selector de pseudo-clase */
+
+        button:hover {
+            background-color: #555;
+        }
+        /*Selector Id*/
+        #formulario {
+            border: 2px solid #555;
+            padding: 50px 100px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 4px;
+        }
+
+        /* Pseudo-elemento ::after para el formulario */
+        form::after {
+            content: '*Primero se debera aprobar si todo cumple con nustros estandares antes de publicarse*';
+            display: block;
+            color: black;
+            text-align: justify;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+
+    </nav>
+    <!--Formulario-->
+    <form id="formulario" enctype="multipart/form-data">
+        <label for="tipo">Tipo de publicación:</label>
+        <select id="tipo" name="tipo">
+            <option value="" disabled selected>Seleccione un tipo...</option>
+            <option value="alquiler">Alquiler</option>
+            <option value="venta">Venta</option>
+        </select>
+
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título">
+
+        <label for="precio">Precio:</label>
+        <input type="text" id="precio" name="precio" placeholder="Ingrese el precio">
+
+        <label for="telefono">Teléfono de contacto:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese el teléfono">
+
+        <label for="correo">Correo de contacto:</label>
+        <input id="correo" name="correo" placeholder="Ingrese el correo">
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Ingrese la descripción"></textarea>
+
+        <label class="file-upload">Subir fotos (máximo 4, formato .jpg):</label>
+        <input type="file" id="fotos" name="fotos" accept=".jpg" multiple
+            placeholder="Ingrese una imagen en formato .jpg">
+        <div class="image-preview" id="image-preview"></div>
+
+        <button type="submit">Publicar</button>
+    </form>
+
+</body>
+<footer class="pie-pagina">
+    <div class="footer-contenido">
+        <div class="contacto-info">
+            <h3>Contacto</h3>
+            <p> <strong>Dirección:</strong> Av. 9 de Octubre y Boyaca, Guayaquil</p>
+            <p><strong>Email:</strong> EcuaRaíces@gmail.com</p>
+            <p><strong>Teléfono:</strong> (+593) 998425002</p>
+        </div>
+        <div class="useful-links">
+            <h3>Enlaces útiles</h3>
+            <ul class="link-ordenados">
+                <li class="links"><a href="Inicio.html"> Inicio</a></li>
+                <li class="links"><a href="Alquiler.html">| Propiedades</a></li>
+                <li class="links"><a href="Contactanos.html">| Contacto</a></li>
+                <li class="links"><a href="PreguntasFrecuentes.html">| Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        <div class="redes">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <img src="./imagenes/facebook.png" alt="Logo de facebook" id="facebook">
+                <img src="./imagenes/twitter.png" alt="Logo de x" id="x">
+                <img src="./imagenes/tiktok.png" alt="Logo de tik tok" id="tiktok">
+                <img src="./imagenes/instagram.png" alt="Logo de instagram" id="instagram">
+
+            </div>
+        </div>
+    </div>
+    <p class="copyright">&copy; 2023 Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtener elementos del formulario y de la vista previa
+        var formulario = document.getElementById('formulario');
+        var tituloInput = document.getElementById('titulo');
+        var correoInput = document.getElementById('correo');
+        var telefonoInput = document.getElementById('telefono');
+        var precioInput = document.getElementById('precio');
+        var tipoInput = document.getElementById('tipo');
+        var descripcionTextarea = document.getElementById('descripcion');
+        var fotosInput = document.getElementById('fotos');
+        var imagePreview = document.getElementById('image-preview');
+        var errorCorreo = document.getElementById('error-correo');
+
+        // Expresión regular para validar el correo electrónico
+        var regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Escuchar el evento de envío del formulario
+        formulario.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevenir el envío por defecto
+
+            // Limpiar mensajes de error previos
+            limpiarError(tituloInput);
+            limpiarError(correoInput);
+            limpiarError(telefonoInput);
+            limpiarError(tipoInput);
+            limpiarError(descripcionTextarea);
+            limpiarError(fotosInput);
+            limpiarError(precioInput);
+            validarFormulario();
+        });
+        // Escuchar el evento de cambio en el input de imágenes
+        fotosInput.addEventListener('change', function () {
+            mostrarImagenes();
+        });
+        function validarFormulario() {
+            // Validar título
+            if (!tituloInput || tituloInput.value.trim() === '') {
+                mostrarError('Por favor, ingresa un título.', tituloInput);
+                return false;
+            } else {
+                limpiarError(tituloInput);
+            }
+            // Expresión regular para validar el precio (números con o sin decimales)
+            var regexPrecio = /^\d+(\.\d{1,2})?$/;
+
+            // Validar precio
+            if (!precioInput || !precioInput.value) {
+                mostrarError('Por favor, ingresa un precio.', precioInput);
+                return false;
+            } else if (!regexPrecio.test(precioInput.value)) {
+                mostrarError('Por favor, ingresa un precio válido.', precioInput);
+                return false;
+            } else {
+                limpiarError(precioInput);
+            }
+
+            // Validar correo electrónico
+            if (!correoInput || !correoInput.value || !regexCorreo.test(correoInput.value)) {
+                mostrarError('Correo electrónico no válido', correoInput);
+                return false;
+            } else {
+                limpiarError(correoInput);
+            }
+
+            // Expresión regular para validar el teléfono (10 dígitos numéricos)
+            var regexTelefono = /^\d{10}$/;
+
+            // Validar teléfono
+            if (!telefonoInput || !telefonoInput.value || !regexTelefono.test(telefonoInput.value)) {
+                mostrarError('Por favor, ingresa un número de teléfono válido (10 dígitos).', telefonoInput);
+                return false;
+            } else {
+                limpiarError(telefonoInput);
+            }
+
+            // Validar tipo
+            if (!tipoInput || tipoInput.value === '') {
+                mostrarError('Por favor, selecciona el tipo de publicación.', tipoInput);
+                return false;
+            } else {
+                limpiarError(tipoInput);
+            }
+
+            // Validar descripción
+            if (!descripcionTextarea || descripcionTextarea.value.trim() === '') {
+                mostrarError('Por favor, ingresa una descripción.', descripcionTextarea);
+                return false;
+            } else {
+                limpiarError(descripcionTextarea);
+            }
+
+            // Validar imágenes
+            if (!fotosInput || !fotosInput.files || fotosInput.files.length === 0) {
+                mostrarError('Por favor, selecciona al menos una imagen.', fotosInput);
+                return false;
+            } else if (fotosInput.files.length > 4) {
+                mostrarError('Solo se permiten un máximo de 4 imágenes.', fotosInput);
+                return false;
+            } else {
+                for (var i = 0; i < fotosInput.files.length; i++) {
+                    var archivo = fotosInput.files[i];
+
+                    // Verificar el formato
+                    if (!archivo.type.startsWith('image/jpeg')) {
+                        mostrarError('Solo se permiten imágenes en formato .jpg.', fotosInput);
+                        return false;
+                    }
+                }
+            }
+
+            limpiarCampos();
+
+            return true; // Retorna true si todas las validaciones son exitosas
+
+        }
+
+        // Función para mostrar las imágenes
+        function mostrarImagenes() {
+            // Limpiar la vista previa
+            imagePreview.innerHTML = '';
+
+            // Obtener la lista de archivos seleccionados
+            var archivos = fotosInput.files;
+
+            for (var i = 0; i < archivos.length; i++) {
+                var archivo = archivos[i];
+
+                // Crear un contenedor para la imagen
+                var contenedor = document.createElement('div');
+
+                // Mostrar la vista previa de la imagen
+                var img = document.createElement('img');
+                img.src = URL.createObjectURL(archivo);
+                img.alt = 'Imagen previa';
+                contenedor.appendChild(img);
+
+                // Adjuntar el contenedor a la vista previa
+                imagePreview.appendChild(contenedor);
+            }
+        }
+
+
+
+        function mostrarError(mensaje, elemento) {
+            // Verificar si ya hay un mensaje de error
+            var errorElemento = elemento.nextElementSibling;
+
+            // Si ya hay un mensaje de error, simplemente actualizar el contenido
+            if (errorElemento && errorElemento.className === 'mensaje-error') {
+                errorElemento.textContent = mensaje;
+            } else {
+                // Si no existe, crea uno nuevo y aplícale estilos
+                errorElemento = document.createElement('div');
+                errorElemento.textContent = mensaje;
+                errorElemento.style.color = 'red'; // color del mensaje de error
+                errorElemento.className = 'mensaje-error';
+                elemento.parentNode.insertBefore(errorElemento, elemento.nextSibling);
+            }
+        }
+
+        // Función para limpiar el mensaje de error
+        function limpiarError(input) {
+            var elementoError = input.nextElementSibling;
+            if (elementoError && elementoError.className === 'mensaje-error') {
+                elementoError.textContent = '';
+            }
+        }
+
+        // Función para limpiar todos los campos del formulario
+        function limpiarCampos() {
+            // Limpiar todos los campos del formulario
+            tituloInput.value = '';
+            correoInput.value = '';
+            telefonoInput.value = '';
+            tipoInput.value = '';
+            descripcionTextarea.value = '';
+            fotosInput.value = '';
+            precioInput.value = '';
+
+            // Limpiar mensajes de error
+            limpiarError(tituloInput);
+            limpiarError(correoInput);
+            limpiarError(telefonoInput);
+            limpiarError(tipoInput);
+            limpiarError(descripcionTextarea);
+            limpiarError(fotosInput);
+            limpiarError(precioInput);
+
+            // Limpiar imágenes en la vista previa
+            imagePreview.innerHTML = '';
+        }
+
+
+    });
+</script>
+
+</html>

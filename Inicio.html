@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Contreras Moreira Erick Alejandro">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Inicio</title>
+    <style>
+        /*Selector universal*/
+        * {
+            margin: 10;
+        }
+
+        .links {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .seccion-destacada {
+            position: relative;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .seccion-destacada img {
+            max-height: 800px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .texto-superpuesto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            font-size: 36px;
+            transform: translate(-50%, -50%);
+        }
+
+        .cartillas-container {
+            margin-top: 40px;
+            display: grid;
+            max-width: auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            /* Espacio entre las cartillas */
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+
+        .cartilla {
+            width: 100%;
+            /* Ancho de cada cartilla al 90% */
+            max-width: 350px;
+            /* Ancho máximo de cada cartilla */
+            margin: 10px;
+            border: 1px solid #ddd;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Selectores de atributos */
+        .cartilla[id="cartilla1"] {
+            background-color: #f1c40f;
+        }
+
+        .cartilla[id="cartilla2"] {
+            background-color: #3498db;
+        }
+
+        .cartilla[id="cartilla3"] {
+            background-color: #2ecc71;
+        }
+
+        .icono {
+            width: 30px;
+            height: 40px;
+            background-color: transparent;
+            display: inline-block;
+            margin-right: 25px;
+        }
+
+        .contenido {
+            padding: 10px;
+            text-align: left;
+            /* Alinea el contenido a la izquierda */
+        }
+
+        .fila2 {
+            display: grid;
+            width: 90%;
+            height: 100%;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .fila2 .cartilla {
+            width: 100%;
+            /* Ancho de cada cartilla al 100% */
+            max-width: none;
+        }
+
+        #contenedorPrincipal {
+            /*Selector id*/
+            margin: 10;
+        }
+
+        @media (max-width: 768px) {
+            .fila2 {
+                grid-template-columns: 1fr;
+                /* Una columna en pantallas más pequeñas */
+            }
+
+            .cartillas-container {
+                grid-template-columns: 1fr;
+                /* Una columna en pantallas más pequeñas */
+            }
+        }
+
+        /* Selectores de pseudo-elementos */
+        .contenido::after {
+            content: "Somos EcuaRaíces!";
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Selectores de pseudo-clase */
+        .cartilla:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+
+    </nav>
+    <!-- Sección adicional -->
+    <section class="seccion-destacada">
+        <img src="imagenes/interiorCasa.jpg" alt="Imagen interior">
+        <div class="texto-superpuesto">
+            <h2>Encuentra tu hogar deseado</h2>
+        </div>
+    </section>
+
+    <!-- Cartillas -->
+    <div class="cartillas-container" id="contenedorPrincipal">
+        <!-- Primera fila de cartillas -->
+        <div class="cartilla" id="cartilla1">
+            <div class="icono">
+                <img src="imagenes/cashback.png" alt="Imagen Cotizacion">
+            </div>
+            <div class="contenido">
+                <h3>Cotización sin costo</h3>
+                <p>Realiza tu cotiazación de una manera fácil y rápida con nostros.</p>
+            </div>
+        </div>
+
+        <div class="cartilla" id="cartilla2">
+            <div class="icono">
+                <img src="imagenes/meeting.png" alt="Imagen conocenos">
+            </div>
+            <div class="contenido">
+                <h3>Conocenos</h3>
+                <p>Conoce porque somos los mejores en el mercado.</p>
+            </div>
+        </div>
+
+        <div class="cartilla" id="cartilla3">
+            <div class="icono">
+                <img src="imagenes/loan.png" alt="Imagen venta">
+            </div>
+            <div class="contenido">
+                <h3>Propiedades Disponibles</h3>
+                <p>Busca tu casa ideal dentro de nuestras opciones que disponemos.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Segunda fila de cartillas -->
+
+    <div class="fila2">
+        <h1 style="text-align: left;">Que te ofrecemos</h1> <!-- estilo en linea-->
+        <div class="cartillas-container">
+            <div class="cartilla" id="cartilla4">
+                <div class="icono">
+                    <img src="imagenes/handshake.png" alt="Imagen de ayudamos a encontrar tu hogar">
+                </div>
+                <div class="contenido">
+                    <br>
+                    <h3>Te asesoramos durante todo el proceso</h3>
+                    <p>Te brindamos asesoría para que comprar o alquilar el lugar de tus sueños
+                        sea una experiencia inolvidable.
+                    </p>
+                </div>
+            </div>
+
+            <div class="cartilla" id="cartilla5">
+                <div class="icono">
+                    <img src="imagenes/house.png" alt="Disponemos de variedad">
+                </div>
+                <div class="contenido">
+                    <h3>Diversas propiedades para todo tipo de bolsillo</h3>
+                    <p>Contamos con diversas propiedades para que puedas escoger la que mejor se adapte a
+                        tu presupuesto.
+                    </p>
+                </div>
+            </div>
+
+            <div class="cartilla" id="cartilla6">
+                <div class="icono">
+                    <img src="imagenes/medal.png" alt="Somos los mejores">
+                </div>
+                <div class="contenido">
+                    <h3>¡Aseguramos que tus sueños se cumplan!</h3>
+                    <p>40 años en el mercado y 2 millones de avisos publicados
+                        nos respaldan en la búsqueda de tu hogar deseado.</p>
+                        <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="pie-pagina">
+    <div class="footer-contenido">
+        <div class="contacto-info">
+            <h3>Contacto</h3>
+            <p> <strong>Dirección:</strong> Av. 9 de Octubre y Boyaca, Guayaquil</p>
+            <p><strong>Email:</strong> EcuaRaíces@gmail.com</p>
+            <p><strong>Teléfono:</strong> (+593) 998425002</p>
+        </div>
+        <div class="useful-links">
+            <h3>Enlaces útiles</h3>
+            <ul class="link-ordenados">
+                <li class="links"><a href="Inicio.html"> Inicio</a></li>
+                <li class="links"><a href="Alquiler.html">| Propiedades</a></li>
+                <li class="links"><a href="Contactanos.html">| Contacto</a></li>
+                <li class="links"><a href="PreguntasFrecuentes.html">| Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        <div class="redes">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <img src="./imagenes/facebook.png" alt="Logo de facebook" id="facebook">
+                <img src="./imagenes/twitter.png" alt="Logo de x" id="x">
+                <img src="./imagenes/tiktok.png" alt="Logo de tik tok" id="tiktok">
+                <img src="./imagenes/instagram.png" alt="Logo de instagram" id="instagram">
+
+            </div>
+        </div>
+    </div>
+    <p class="copyright">&copy; 2023 Todos los derechos reservados.</p>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cartillas = document.querySelectorAll('.cartilla');
+
+        cartillas.forEach(cartilla => {
+            // Obtener el número de cartilla desde el ID
+            const numeroCartilla = cartilla.id.replace('cartilla', '');
+            // Evento de clic para redireccionar a páginas diferentes
+            cartilla.addEventListener('click', function () {
+                // Ajusta las redirecciones según tus necesidades
+                if (numeroCartilla === '1') {
+                    window.location.href = 'Cotizaciones.html';
+                } else if (numeroCartilla === '2') {
+                    window.location.href = 'Contactanos.html';
+                } else if (numeroCartilla === '3') {
+                    window.location.href = 'Alquiler.html';
+                }
+            });
+
+            // Eventos de desplazamiento
+            cartilla.addEventListener('mouseenter', function () {
+                this.style.transform = 'scale(1.05)';
+                this.style.cursor = 'pointer';
+            });
+
+            cartilla.addEventListener('mouseleave', function () {
+                this.style.transform = 'scale(1)';
+                this.style.cursor = 'none';
+
+            });
+        });
+    });
+</script>
+
+</html>

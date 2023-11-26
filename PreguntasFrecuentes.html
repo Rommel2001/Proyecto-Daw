@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pomaguayo Batalla Darwin Jesus">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Preguntas Frecuentes</title>
+    <style>
+        /* Selector universal */
+        * {
+            margin: 10;
+        }
+    
+        /* Selector de clases */
+        .preguntas-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40%;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+    
+        .pregunta {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        /* Selector de pseudoclase */
+        .pregunta:hover {
+            background-color: #f2f2f2;
+        }
+    
+        /* Selector de atributo */
+        .pregunta[data-type="important"] {
+            border: 2px solid #ff0000;
+            /* Cambia el borde para preguntas importantes */
+        }
+    
+        .respuesta {
+            display: none;
+            margin-top: 10px;
+        }
+    
+        .pregunta.active .respuesta {
+            display: block;
+        }
+    
+        h2 {
+            margin-top: 20px;
+        }
+    
+        /* Selector de pseudo-elemento */
+        .pregunta::before {
+            content: "➤ ";
+            /* Agrega una flecha antes de cada pregunta */
+            color: #4caf50;
+            margin-right: 5px;
+        }
+    
+        #preguntar-btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    
+        #preguntar-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+    
+    
+</head>
+
+<body>
+    <nav>
+
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+
+    </nav>
+    <div class="preguntas-container">
+        <h2>PREGUNTAS FRECUENTES</h2>
+        <div class="pregunta" onclick="toggleRespuesta('pregunta1')" data-type="important">
+            <h3>¿Cómo puedo publicar un testimonio?</h3>
+        </div>
+        <div class="respuesta" id="pregunta1">
+            <p>Puedes publicar un testimonio yendo a la página "Publicar". Llena el formulario con tu nombre, correo
+                electrónico, teléfono, edad, comentario y calificación. Después de enviar el formulario, recibirás un
+                mensaje de éxito y serás redirigido a la página de inicio.</p>
+        </div>
+
+        <div class="pregunta" onclick="toggleRespuesta('pregunta2')">
+            <h3>¿Cómo simulo un financiamiento?</h3>
+        </div>
+        <div class="respuesta" id="pregunta2">
+            <p>Para simular un financiamiento, visita la página "Simular Financiamiento". Llena el formulario con la
+                información requerida y haz clic en el botón para obtener una cotización. Recibirás detalles sobre las
+                opciones de financiamiento disponibles para ti.</p>
+        </div>
+
+        <div class="pregunta" onclick="toggleRespuesta('pregunta3')">
+            <h3>¿Puedo alquilar propiedades a través de su sitio web?</h3>
+        </div>
+        <div class="respuesta" id="pregunta3">
+            <p>Sí, puedes alquilar propiedades utilizando nuestro sitio web. Visita la página "Alquilar" para explorar
+                las propiedades disponibles y sigue las instrucciones para solicitar el alquiler de la propiedad de tu
+                elección.</p>
+        </div>
+
+        <div class="pregunta" onclick="toggleRespuesta('pregunta4')" data-type="important">
+            <h3>¿Cómo me pongo en contacto con ustedes?</h3>
+        </div>
+        <div class="respuesta" id="pregunta4">
+            <p>Puedes ponerte en contacto con nosotros visitando la página "Contáctanos". Llena el formulario de
+                contacto con tu nombre, correo electrónico y mensaje. Nos pondremos en contacto contigo tan pronto como
+                sea posible.</p>
+        </div>
+        <button id="preguntar-btn" onclick="redirigirAPagina()">PREGUNTAR</button>
+
+    </div>
+
+</body>
+<footer class="pie-pagina">
+    <div class="footer-contenido">
+        <div class="contacto-info">
+            <h3>Contacto</h3>
+            <p > <strong>Dirección:</strong> Av. 9 de Octubre y Boyaca, Guayaquil</p>
+            <p><strong>Email:</strong> EcuaRaíces@gmail.com</p>
+            <p><strong>Teléfono:</strong> (+593) 998425002</p>
+        </div>
+        <div class="useful-links">
+            <h3>Enlaces útiles</h3>
+            <ul class="link-ordenados">
+                <li class="links"><a href="Inicio.html"> Inicio</a></li>
+                <li class="links"><a href="Alquiler.html">| Propiedades</a></li>
+                <li class="links"><a href="Contactanos.html">| Contacto</a></li>
+                <li class="links"><a href="PreguntasFrecuentes.html">| Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        <div class="redes">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <img src="./imagenes/facebook.png" alt="Logo de facebook" id="facebook">
+                <img src="./imagenes/twitter.png" alt="Logo de x" id="x">
+                <img src="./imagenes/tiktok.png" alt="Logo de tik tok" id="tiktok">
+                <img src="./imagenes/instagram.png" alt="Logo de instagram" id="instagram">
+
+            </div>
+        </div>
+    </div>
+    <p class="copyright">&copy; 2023 Todos los derechos reservados.</p>
+</footer>
+<script>
+    //Funcion para redireccionar 
+        function redirigirAPagina() {
+        window.location.href = "PublicarPregunta.html";
+    }
+    //Funcion para ocultar o mostrar respuesta
+    function toggleRespuesta(id) {
+        var respuesta = document.getElementById(id);
+        respuesta.style.display = respuesta.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+</html>

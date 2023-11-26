@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pomaguayo Batalla Darwin Jesus">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Publicar Pregunta</title>
+    <style>
+        /*Selector universal*/
+        * {
+            margin: 10;
+        }
+
+        #formulario {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 150px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin-top: 10px;
+            width: 80%;
+            text-align: left;
+        }
+
+        /* Estilos para los elementos de entrada (input, select, textarea) */
+        input,
+        select,
+        textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Estilos para el botón en estado de hover, pseudoclase */
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /*Selector id*/
+        #mensaje-exito,
+        #mensaje-error {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .mensaje-exito {
+            color: green;
+        }
+
+        #mensaje-error {
+            background-color: #f44336;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Selector de tipo atributo para el formulario */
+        [data-custom-attribute="formulario"] {
+            /* Agrega los estilos que desees */
+            border: 2px solid #0066cc;
+            /* Borde azul para destacar */
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+            /* Pseudo-elemento */
+            /* un icono antes del contenido del botón */
+            button::before {
+                content: '+';
+                margin-right: 8px;
+            }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+    </nav>
+    <form id="formulario" onsubmit="validarFormulario(event)" data-custom-attribute="formulario">
+        <h2 style="font-weight: bold;">Publicar Pregunta</h2> <!--Estilo en linea -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo">
+
+        <label for="categoria">Categoría:</label>
+        <select id="categoria" name="categoria">
+            <option value="" selected disabled>Seleccione una opción...</option>
+            <option value="general">General</option>
+            <option value="venta">Venta</option>
+            <option value="alquiler">Alquiler</option>
+            <option value="cotizacion">Cotización</option>
+        </select>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+
+        <label for="adjunto">Adjuntar Archivo:</label>
+        <input type="file" id="adjunto" name="adjunto">
+
+        <label for="anonimo">Publicar Anónimamente:</label>
+        <input type="checkbox" id="anonimo" name="anonimo">
+
+        <button type="submit">Publicar</button>
+        <div id="mensaje-exito" class="mensaje-exito"></div>
+        <div id="mensaje-error"></div>
+    </form>
+    <footer class="pie-pagina">
+        <div class="footer-contenido">
+            <div class="contacto-info">
+                <h3>Contacto</h3>
+                <p> <strong>Dirección:</strong> Av. 9 de Octubre y Boyaca, Guayaquil</p>
+                <p><strong>Email:</strong> EcuaRaíces@gmail.com</p>
+                <p><strong>Teléfono:</strong> (+593) 998425002</p>
+            </div>
+            <div class="useful-links">
+                <h3>Enlaces útiles</h3>
+                <ul class="link-ordenados">
+                    <li class="links"><a href="Inicio.html"> Inicio</a></li>
+                    <li class="links"><a href="Alquiler.html">| Propiedades</a></li>
+                    <li class="links"><a href="Contactanos.html">| Contacto</a></li>
+                    <li class="links"><a href="PreguntasFrecuentes.html">| Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="redes">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <img src="./imagenes/facebook.png" alt="Logo de facebook" id="facebook">
+                    <img src="./imagenes/twitter.png" alt="Logo de x" id="x">
+                    <img src="./imagenes/tiktok.png" alt="Logo de tik tok" id="tiktok">
+                    <img src="./imagenes/instagram.png" alt="Logo de instagram" id="instagram">
+
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2023 Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function validarFormulario(event) {
+            event.preventDefault();
+
+            // Limpiar mensajes de error
+            limpiarMensajes();
+
+            var nombre = document.getElementById("nombre").value;
+            var titulo = document.getElementById("titulo").value;
+            var categoria = document.getElementById("categoria").value;
+            var descripcion = document.getElementById("descripcion").value;
+            var adjunto = document.getElementById("adjunto").value;
+
+            if (!nombre || !titulo || categoria === "" || !descripcion || !adjunto) {
+                mostrarMensajeError("Todos los campos son obligatorios");
+                return;
+            }
+
+            // Validar el formato del archivo adjunto
+            var formatoPermitido = /(\.jpg)$/i;
+            if (!formatoPermitido.test(adjunto)) {
+                mostrarMensajeError("El archivo adjunto debe ser una imagen en formato JPG");
+                return;
+            }
+
+            mostrarMensajeExito("Estamos redirigiendo a la pagina inicial... Espere por favor...");
+            setTimeout(function () {
+                window.location.href = "Inicio.html";
+            }, 3000);
+        }
+
+        function mostrarMensajeExito(mensaje) {
+            var mensajeExito = document.getElementById("mensaje-exito");
+            if (mensajeExito) {
+                mensajeExito.innerHTML = mensaje;
+                mensajeExito.style.display = "block";
+            }
+        }
+
+        function mostrarMensajeError(mensaje) {
+            var mensajeError = document.getElementById("mensaje-error");
+            if (mensajeError) {
+                mensajeError.innerHTML = mensaje;
+                mensajeError.style.display = "block";
+            }
+        }
+
+        function limpiarMensajes() {
+            var mensajeExito = document.getElementById("mensaje-exito");
+            var mensajeError = document.getElementById("mensaje-error");
+
+            if (mensajeExito) {
+                mensajeExito.style.display = "none";
+            }
+
+            if (mensajeError) {
+                mensajeError.style.display = "none";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

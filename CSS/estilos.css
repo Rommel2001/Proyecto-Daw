@@ -1,0 +1,137 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    min-height: 100vh;
+    background-color: #f3ebeb;
+}
+/* Estilos para la barra de navegación */
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+    font-family: 'Arial', sans-serif; /* Fuente mejorada para legibilidad */
+    margin: 0;
+}
+
+.menu {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 3px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.menu:hover {
+    background-color: #555;
+}
+
+/* Estilos para el submenú */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    z-index: 1;
+    width: 200px; /* Ajuste el ancho según sea necesario */
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+}
+
+.menu:hover .submenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu a {
+    padding: 12px 20px; /* Aumenta el espacio alrededor del texto */
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.submenu a:last-child {
+    border-bottom: none;
+}
+
+.submenu a:hover {
+    background-color: #555;
+}
+
+/* Estilos adicionales para hacer la barra de navegación más atractiva */
+.menu-container {
+    position: relative;
+}
+
+.menu-container:before {
+    content: '\2022'; /* Añade un punto antes del menú principal */
+    color: white;
+    margin-right: 10px;
+}
+
+/*Estilo para el footer*/
+
+.pie-pagina {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contacto-info,
+.useful-links,
+.redes {
+    text-align: left;
+}
+
+.links {
+    display: inline-block;
+    text-align: center;
+}
+
+.link-ordenados .links a {
+    color: white;
+}
+
+#facebook, #x, #instagram, #tiktok {
+    margin-right: 10px; /* Ajusta el espacio entre los iconos aquí */
+}
+
+.contenido-redes {
+    display: inline; 
+    margin: 2px auto;
+}
+
+/* Agregando algunos estilos en línea como ejemplo */
+.pie-pagina {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 10px;
+}

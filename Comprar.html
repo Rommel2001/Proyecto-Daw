@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anguieta Gusqui Mario Israel">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Comprar casas</title>
+<style>
+        /*Estilos*/
+    
+        /* Estilos de la pagina (Selector Universal) */
+        * {
+            margin: 10;
+            box-sizing: border-box;
+        }
+    
+        /*(Selector de tipo)*/
+        /* Estilos para listas ordenadas */
+        ul {
+            flex: 0 0 calc(33.33% - 10px);
+            margin: 0 5px;
+            padding: 0;
+        }
+    
+    
+        section {
+            margin-bottom: 100px;
+            padding: 10px;
+    
+        }
+    
+        li {
+            list-style: none;
+            margin: 5px;
+        }
+    
+        a {
+            text-decoration: none;
+            color: #1f1d1d;
+        }
+    
+        article {
+            background-color: rgb(7, 0, 102);
+            border: 1px solid rgb(3, 14, 19);
+            border-radius: 3%;
+            text-align: center;
+            width: 100%;
+    
+        }
+    
+        /*(Selector de clase)*/
+    
+        .casas {
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+            border: 2px solid #746f6f;
+            border-radius: 5px;
+            flex: 1;
+            
+        }
+    
+        /* Estilo usando el Selector de Atributo */
+        .casas[data-destacada] {
+            border-color:  #200050;
+            /* Cambia el color del borde */
+        }
+    
+        /* Selector de Descendencia - Estilos de Imágenes en Casas */
+        .casas img {
+            max-width: 100%;
+            height: auto;
+        }
+    
+        /* Selector de Grupo - Estilos de Enlaces en Casas */
+        .casas a,
+        #titP {
+            color: #1f1d1d;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+    
+        .contenedor {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+            background-color: white;
+    
+        }
+    
+        .container1 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    
+        .image {
+            max-width: 70px;
+        }
+    
+        .button {
+            margin-left: 10px;
+        }
+       
+        /*(Selector de ID)*/
+    
+        #encabezado {
+            color: white;
+            padding: 10px;
+    
+        }
+    
+        #CasasAlquiler {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    
+        /* Selector de Pseudo-clase- Estilos al hacer hover en Casas */
+        .casas:hover {
+            background-color: #f0f0f0;
+        }
+</style>
+</head>
+
+<body>
+    <nav>
+
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+
+    </nav>
+    <h1 id="titP">Venta de casas</h1>
+    <br>
+    <article>
+        <h2 id="encabezado">Encuentra la casa de tus sueños</h2>
+    </article>
+</body>
+<section>
+    <h2>Lista de Casas en Venta</h2>
+
+    <!-- 2: Estrategia Grid -->
+    <div class="contenedor">
+        <div class="casas" onmouseover="resaltar(this)" onmouseout="normalizar(this)">
+            <br>
+            <img src="imagenes/CasaVenta1.jpg" alt="Casa 1" style="border:2px solid black;width:300px;height: 200px;"> <!--Estilo en linea-->
+            <h3>Casa en alquiler al norte de Guayaquil - Av Juan Tanca Marengo</h3>
+            <p style="text-align: center;">Urbanización consolidada pasando de Centro Comercial el Dorado en la Vía a
+                Salitre.
+
+                Amplia y cómoda casa de estreno lista para la entrega hoy, de 3 dormitorios todos con baño completo. y
+                salita familiar en la planta alta. Todos los dormitorios para camas de 2,5 plaza minimo.
+
+                Planta Baja, espaciosa sala y comedor q se incorporan al patio con jacuzzi mediante puertas corredizas
+                triples, formando un gran ambiente familiar.
+                Cocina lavandería y cuarto de servicio con baño. </p>
+            <p><strong>Precio:</strong>$158.000</p>
+            <p><strong>Terreno:</strong>157 m2</p>
+            <br>
+
+        </div>
+
+        <div class="casas" onmouseover="resaltar(this)" onmouseout="normalizar(this)">
+            <br>
+            <img src="imagenes/CasaVenta2.jpg" alt="Casa 2" style="border:2px solid black;width:200px;height: 200px;">
+            <h3>Venta de Casas en Urb. Mi Lote</h3>
+            <p style="text-align: center;">
+                Deja tu carro dentro de tu propiedad. En la Urbanizacion mi lote disfruta de un ambiente relajado,
+                seguro y cómodo.
+                Estas casas cuentan con muebles, servicio de agua, eléctrico e internet.
+                casas de 3 dormitorios, cocina y 1 baño, Sala comedor y patio para garaje de 2 vehiculos</p>
+            <p><strong>Precio:</strong> $42.000 </p>
+            <p><strong>Terreno:</strong> 110 m2</p>
+            <br>
+        </div>
+
+        <div class="casas" onmouseover="resaltar(this)" onmouseout="normalizar(this)">
+            <br>
+            <img src="imagenes/CasaVenta3.jpg" alt="Casa 3" style="border:2px solid black;width:300px;height: 200px;">
+            <h3>Casa en venta Urb. Mi lote , Guayaquil</h3>
+            <p style="text-align: center;">Casa preciosa de una planta. A una cuadra de la entrada de la urbanización.
+                Cuenta con cámaras
+                de vigilancia, patio, área de lavandería, aire acondicionado, 3 dormitorios y 1 baño. </p>
+            <p><strong>Precio:</strong> $50.500</p>
+            <p><strong>Terreno:</strong> 68 m2</p>
+            <br>
+
+        </div>
+
+        <div class="casas" onmouseover="resaltar(this)" onmouseout="normalizar(this)">
+            <br>
+            <img src="imagenes/CasaVenta4.jpg" alt="Casa 4" style="border:2px solid black;width:200px;height: 200px;">
+            <h3>Casa en ciudad Celeste Etapa Estribor, Samborondón, Ecuador</h3>
+            <p style="text-align: center;">Esta casa cuenta con 4 dormitorios con sus respectivos armarios, sala,
+                comedor, cocina, sala de estar,
+                2 baños, amplio patio posterior ideal para piscina, cancha deportiva, área de BBQ área de gimnasio,
+                yoga, etc..
+            </p>
+            <p><strong>Precio:</strong> $271.000</p>
+            <p><strong>Terreno:</strong>61 m2</p>
+            <br>
+        </div>
+
+        <div class="casas" onmouseover="resaltar(this)" onmouseout="normalizar(this)">
+            <br>
+            <img src="imagenes/CasaVenta5.jpg" alt="Casa 5" style="border:2px solid black;width:300px;height: 200px;">
+            <h3>Casa en venta Lomas De Urdesa, Guayaquil, Ecuador</h3>
+            <p>1 departamento con entrada independiente tipo casa con parqueo privado 2 vehículos.
+                Sala
+                Comedor
+                Cocina y conexión de lavandería.
+                2 habitaciones con clóset y con baño completo cada uno.
+                Piscina
+                1oficina con baño de servicio.
+
+                Entrada independiente
+                2 suites planta baja con excelentes acabados Amobladas. Rentabilidad $1200
+
+            </p>
+            <p><strong>Precio:</strong> $370.000</p>
+            <p><strong>Terreno:</strong>448 m2</p>
+
+            <br>
+        </div>
+
+        <div class="casas" onmouseover="resaltar(this)" onmouseout="normalizar(this)">
+            <br>
+            <img src="imagenes/CasaVenta6.jpg" alt="venta casa 6" style="border:2px solid black;">
+
+            <h3>Casa en venta Samanes 6, Guayaquil, Ecuador</h3>
+            <p><strong>Precio:</strong> $120.000
+            <p><strong>Terreno:</strong>
+                85 m² totales
+                <br>
+                <br>
+
+                70 m² cubiertos
+                <br>
+                <br>
+                3 dormitorios
+                <br>
+                <br>
+                2 baños,patio,cocina,zona BBQ.
+            </p>
+            <br>
+        </div>
+
+
+        <div class="casas" onmouseover="resaltar(this)" onmouseout="normalizar(this)">
+            <br>
+            <img src="imagenes/CasaVenta7.jpg" alt="venta casa 6" style="border:2px solid black;">
+
+            <h3>Casa en venta Tarqui, Guayaquil - VILLA CLUB ETAPA JUPITER</h3>
+            <p><strong>Precio:</strong> $105.000
+            <p><strong>Terreno:</strong>
+                160 m² totales
+                <br>
+                <br>
+
+                92 m² cubiertos
+                <br>
+                <br>
+                Sala,
+                Comedor,
+                Cocina,
+                Baño de visita,
+                Dormitorio Principal con baño,
+                2 Dormitorios comparten baño,
+                Patio,
+                Garaje
+            </p>
+            <br>
+        </div>
+
+
+        <div class="casas" onmouseover="resaltar(this)" onmouseout="normalizar(this)">
+            <br>
+            <img src="imagenes/CasaVenta8.jpg" alt="venta casa 6" style="border:2px solid black;">
+
+            <h3>Casa en venta Samanes 6, Guayaquil, Ecuador</h3>
+            <p><strong>Precio:</strong> $700.000
+            <p><strong>Terreno:</strong>
+                880 m² totales
+                <br>
+                <br>
+
+                600 m² cubiertos
+                <br>
+            <p style="text-align: center;">
+                Excelente Casa ubicada en urbanización privada con guardianía y control de acceso 24h.
+                Casa cuenta con 4 dormitorios, cada uno con su respectivo baño y closet.
+                Casa cuenta con amplia sala, comedor y cocina.
+                Casa cuenta con baño de visitas.
+                Casa cuenta con área de lavandería y cuarto de servicio con su respectivo baño.
+                Casa cuenta con amplio patio con piscina y jacuzzi.
+                Casa cuenta con 2 habitaciones de visitas con sus respectivos baños y closet.
+                Casa cuenta con cuarto de juegos con bar y pergola.
+                Casa cuenta con garaje cerrado y techado para 2 vehiculos.
+            </p>
+            </p>
+            <br>
+        </div>
+
+    </div>
+
+</section>
+<footer class="pie-pagina">
+    <div class="footer-contenido">
+        <div class="contacto-info">
+            <h3>Contacto</h3>
+            <p > <strong>Dirección:</strong> Av. 9 de Octubre y Boyaca, Guayaquil</p>
+            <p><strong>Email:</strong> EcuaRaíces@gmail.com</p>
+            <p><strong>Teléfono:</strong> (+593) 998425002</p>
+        </div>
+        <div class="useful-links">
+            <h3>Enlaces útiles</h3>
+            <ul class="link-ordenados">
+                <li class="links"><a href="Inicio.html"> Inicio</a></li>
+                <li class="links"><a href="Alquiler.html">| Propiedades</a></li>
+                <li class="links"><a href="Contactanos.html">| Contacto</a></li>
+                <li class="links"><a href="PreguntasFrecuentes.html">| Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        <div class="redes">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <img src="./imagenes/facebook.png" alt="Logo de facebook" id="facebook">
+                <img src="./imagenes/twitter.png" alt="Logo de x" id="x">
+                <img src="./imagenes/tiktok.png" alt="Logo de tik tok" id="tiktok">
+                <img src="./imagenes/instagram.png" alt="Logo de instagram" id="instagram">
+
+            </div>
+        </div>
+    </div>
+    <p class="copyright">&copy; 2023 Todos los derechos reservados.</p>
+</footer>
+<script>
+    function resaltar(elemento) { /*Función para resaltar la cartilla seleccionada*/
+        elemento.style.transform = "scale(1.05)";
+        elemento.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
+        elemento.style.cursor = "pointer";
+    }
+
+    function normalizar(elemento) { /*Función para volver a la normalidad el elemento*/
+        elemento.style.transform = "scale(1)";
+        elemento.style.boxShadow = "none";
+        elemento.style.cursor = "none";
+    }
+</script>
+
+</html>

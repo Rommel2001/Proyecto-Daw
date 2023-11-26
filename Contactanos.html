@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Emily Priscila Lindao Montalvan">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <style>
+        /* Selector Universal - Establece reglas de estilo para todos los elementos */
+        
+    
+        /* Selector de Tipo - Estilos para el cuerpo del documento */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #f3ebeb;
+        }
+    
+        /* Selector de Clase - Estilos para todos los contenedores de contacto */
+        .contacto-container {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            width: 50%;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            border: 2px solid red;
+           
+        }
+    
+        /* Selector de Clase - Estilos de la imagen de volver */
+        .volver-img {
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            max-width: 30px;
+            cursor: pointer;
+        }
+    
+        /* Selector de Tipo - Estilos para el formulario */
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        /* Selector de Tipo - Estilos para las etiquetas */
+        label {
+            margin-top: 10px;
+            text-align: left;
+            width: 100%;
+        }
+    
+        /* Selector de Clase - Estilos específicos para las etiquetas de género */
+        .genero-label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    
+        /* Selector de Clase - Estilos para el contenedor de género */
+        .genero-container {
+            display: flex;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            margin-right: 80%; /* Ajusta según sea necesario */
+        }
+    
+        /* Selector de ID - Estilos específicos para los elementos con ID genero1 y genero2 */
+        #genero1,
+        #genero2 {
+            margin-top: 12px;
+        }
+    
+        /* Selector de Tipo - Estilos para input, select y textarea */
+        input,
+        select,
+        textarea {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+    
+        /* Selector de Tipo Atributo - Estilos para elementos con atributo data-destacada */
+        [data-destacada] {
+            border-color: green;
+            /* Cambia el color del borde */
+        }
+    
+        /* Selector de Tipo - Estilos para el botón */
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        /* Selector de Pseudo-clase - Estilos para el botón al hacer hover */
+        button:hover {
+            background-color: #555;
+        }
+    
+        /* Selector de Tipo - Estilos para el elemento small */
+        small {
+            color: red;
+        }
+    </style>
+    
+    
+    
+     
+    <title>Contactanos</title>
+</head>
+
+<body>
+</div>
+    <div class="contacto-container" data-destacada> <!--Llamada al atributo data-destacada-->
+        <a href="Inicio.html">
+            <img class="volver-img" src="imagenes/back.png" alt="Volver">
+        </a>
+        <h2>Contactanos</h2>
+        <form id="contactForm">
+            <br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <small id="nombreError"></small>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email">
+            <small id="emailError"></small>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}">
+            <small id="telefonoError">Formato: 09xxxxxxxx</small>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+            <small id="mensajeError"></small>
+
+            <label for="opcion">Selecciona una opción:</label>
+            <select id="opcion" name="opcion">
+                <option value="">Seleccione una categoria...</option>
+                <option value="opcion1">Reclamo</option>
+                <option value="opcion2">Horario de atención</option>
+                <option value="opcion3">Cotización</option>
+            </select>
+            <small id="opcionError"></small>
+
+            <label for="checkbox">Acepto los términos y condiciones:</label>
+            <input type="checkbox" id="checkbox" name="checkbox" style="margin-right: 80%; margin-top: 14px;"> <!-- Estilo en linea-->
+            <small id="checkboxError"></small>
+            <label>Selecciona tu género:</label>
+            <div class="genero-container">
+                <label class="genero-label" for="genero1">Masculino</label>
+                <input type="radio" id="genero1" name="genero" value="masculino">
+            </div>
+            <div class="genero-container">
+                <label class="genero-label" for="genero2">Femenino</label>
+                <input type="radio" id="genero2" name="genero" value="femenino">
+            </div>
+            <small id="generoError"></small>
+
+            <button type="button" onclick="enviarFormulario()">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        function enviarFormulario() {
+            // Validaciones
+            var nombre = document.getElementById('nombre').value;
+            var email = document.getElementById('email').value;
+            var telefono = document.getElementById('telefono').value;
+            var mensaje = document.getElementById('mensaje').value;
+            var opcion = document.getElementById('opcion').value;
+            var checkbox = document.getElementById('checkbox').checked;
+            var genero1 = document.getElementById('genero1').checked;
+            var genero2 = document.getElementById('genero2').checked;
+
+            // Limpiar errores previos
+            document.getElementById('nombreError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('telefonoError').innerText = '';
+            document.getElementById('mensajeError').innerText = '';
+            document.getElementById('opcionError').innerText = '';
+            document.getElementById('checkboxError').innerText = '';
+            document.getElementById('generoError').innerText = '';
+
+            var hasError = false;
+
+            // Validar nombre
+            if (nombre.trim() === '') {
+                document.getElementById('nombreError').innerText = 'Ingrese su nombre';
+                hasError = true;
+            }
+
+            // Validar email
+            if (!isValidEmail(email)) {
+                document.getElementById('emailError').innerText = 'Ingrese un correo electrónico válido';
+                hasError = true;
+            }
+
+            // Validar telefono
+            if (!isValidPhone(telefono)) {
+                document.getElementById('telefonoError').innerText = 'Ingrese un número de teléfono válido';
+                hasError = true;
+            }
+
+            // Validar mensaje
+            if (mensaje.trim() === '') {
+                document.getElementById('mensajeError').innerText = 'Ingrese su mensaje';
+                hasError = true;
+            }
+
+            // Validar opción
+            if (opcion === '') {
+                document.getElementById('opcionError').innerText = 'Seleccione una opción';
+                hasError = true;
+            }
+
+            // Validar checkbox
+            if (!checkbox) {
+                document.getElementById('checkboxError').innerText = 'Acepte los términos y condiciones';
+                hasError = true;
+            }
+
+            // Validar género
+            if (!genero1 && !genero2) {
+                document.getElementById('generoError').innerText = 'Seleccione su género';
+                hasError = true;
+            }
+
+            // Enviar formulario si no hay errores
+            if (!hasError) {
+                alert('Formulario enviado correctamente');
+                limpiarCampos();
+            }
+        }
+        function limpiarCampos() {
+            // Limpiar campos
+            document.getElementById('nombre').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('telefono').value = '';
+            document.getElementById('mensaje').value = '';
+            document.getElementById('opcion').value = '';
+            document.getElementById('checkbox').checked = false;
+            document.getElementById('genero1').checked = false;
+            document.getElementById('genero2').checked = false;
+
+            // Limpiar mensajes de error
+            document.getElementById('nombreError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('telefonoError').innerText = '';
+            document.getElementById('mensajeError').innerText = '';
+            document.getElementById('opcionError').innerText = '';
+            document.getElementById('checkboxError').innerText = '';
+            document.getElementById('generoError').innerText = '';
+        }
+        function isValidEmail(email) {
+            // Validación de correo electrónico
+            var emailRegex = /\S+@\S+\.\S+/;
+            return emailRegex.test(email);
+        }
+
+        function isValidPhone(phone) {
+            // Validación número de teléfono (10 dígitos)
+            var phoneRegex = /^\d{10}$/;
+            return phoneRegex.test(phone);
+        }
+    </script>
+</body>
+
+</html>

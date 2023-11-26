@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Clavijo Calderon Sandy Lady">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Publicar Testimonio</title>
+    <style>
+        /* Selector universal */
+        * {
+            margin: 10;
+        }
+
+        /*Selector de clase*/
+        .formulario {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 20px;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        /*selector de tipo*/
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Estilos para los elementos de entrada (input, textarea) dentro de .campo */
+
+        input,
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .mensaje-error {
+            color: red;
+            margin-top: 5px;
+        }
+
+        .mensaje-exito {
+            color: green;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Estilos para el botón en estado de hover, pseudoclase */
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Pseudo-elemento */
+        button::before {
+            content: '+';
+            /* Código Unicode para un punto negro */
+            margin-right: 8px;
+        }
+
+        /* Selector de tipo atributo */
+        .formulario[data-custom-attribute="formulario"] {
+            /* Agrega los estilos que desees */
+            border: 2px solid #0066cc;
+            /* Borde azul para destacar */
+            padding: 60px;
+            margin-bottom: 10px;
+        }
+        #texto{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <a class="menu" href="Inicio.html">Inicio</a>
+        <a class="menu" href="Comprar.html">Comprar</a>
+        <div class="menu">
+            Quiénes somos
+            <div class="submenu">
+                <a href="Contactanos.html">Contáctanos</a>
+                <a href="TrabajaConNosotros.html">Trabaja con nosotros</a>
+                <a href="NuestraHistoria.html">Nuestra historia</a>
+                <a href="Testimonios.html">Testimonios</a>
+            </div>
+        </div>
+        <a class="menu" href="Cotizaciones.html">Simular Financiamiento</a>
+        <a class="menu" href="alquiler.html">Alquilar</a>
+        <a class="menu" href="Publicar.html">Publicar</a>
+
+    </nav>
+    <div class="formulario" data-custom-attribute="formulario">
+        <h2 id="texto" style="text-align: center;">Publicar Testimonio</h2> <!--Estilo en linea-->
+        <form onsubmit="return validarFormulario()" method="post" >
+            <div class="campo">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+            </div>
+            <div id="error-nombre" class="mensaje-error"></div>
+
+            <div class="campo">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="correo" id="correo" name="correo">
+            </div>
+            <div id="error-correo" class="mensaje-error"></div>
+
+            <div class="campo">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono">
+            </div>
+            <div id="error-telefono" class="mensaje-error"></div>
+
+            <div class="campo">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad">
+            </div>
+            <div id="error-edad" class="mensaje-error"></div>
+
+            <div class="campo">
+                <label for="comentario">Comentario:</label>
+                <textarea id="comentario" name="comentario" rows="4"></textarea>
+            </div>
+            <div id="error-comentario" class="mensaje-error"></div>
+
+            <div class="campo">
+                <label for="calificacion">Calificación:</label>
+                <input type="range" id="calificacion" name="calificacion" min="1" max="5" value="3"
+                    oninput="actualizarEstrellas()">
+                <div id="calificacionEstrellas">3 estrellas</div>
+            </div>
+
+            <button type="submit">Enviar Testimonio</button>
+        </form>
+        <div id="mensaje-exito" class="mensaje-exito"></div>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            // Limpiar mensajes de error
+            limpiarMensajesError();
+
+            var nombre = document.getElementById('nombre').value;
+            var correo = document.getElementById('correo').value;
+            var telefono = document.getElementById('telefono').value;
+            var edad = document.getElementById('edad').value;
+            var comentario = document.getElementById('comentario').value;
+
+            if (!nombre) {
+                mostrarError('error-nombre', 'Por favor, ingrese su nombre.');
+                return false;
+            }
+
+            if (!correo) {
+                mostrarError('error-correo', 'Por favor, ingrese su correo electrónico.');
+                return false;
+            }
+
+            if (!telefono) {
+                mostrarError('error-telefono', 'Por favor, ingrese su número de teléfono.');
+                return false;
+            }
+
+            if (!edad) {
+                mostrarError('error-edad', 'Por favor, ingrese su edad.');
+                return false;
+            }
+
+            if (!comentario) {
+                mostrarError('error-comentario', 'Por favor, ingrese su comentario.');
+                return false;
+            }
+
+            // Validación de correo electrónico
+            var correoExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!correoExp.test(correo)) {
+                mostrarError('error-correo', 'Por favor, ingrese un correo electrónico válido.');
+                return false;
+            }
+
+            // Validación de teléfono
+            var telefonoExp = /^\d{10}$/;
+            if (!telefonoExp.test(telefono)) {
+                mostrarError('error-telefono', 'Por favor, ingrese un número de teléfono válido (10 dígitos).');
+                return false;
+            }
+
+            // Validación de edad
+            if (edad < 18) {
+                mostrarError('error-edad', 'Debes tener al menos 18 años para enviar un testimonio.');
+                return false;
+            }
+
+            // Todo está bien, mostrar mensaje de éxito y redirigir
+            mostrarMensajeExito("Formulario enviado con éxito. Redirigiendo a Inicio...");
+            setTimeout(function () {
+                window.location.href = "Inicio.html";
+            }, 3000);  // Redirigir después de 3 segundos (puedes ajustar el tiempo)
+
+            // Evitar el envío real del formulario (ya que estamos redirigiendo manualmente)
+            return false;
+        }
+
+        function mostrarMensajeExito(mensaje) {
+            var elementoExito = document.getElementById('mensaje-exito');
+            elementoExito.innerHTML = mensaje;
+        }
+
+        function actualizarEstrellas() {
+            var calificacion = document.getElementById('calificacion').value;
+            var estrellasDiv = document.getElementById('calificacionEstrellas');
+
+            switch (calificacion) {
+                case '1':
+                    estrellasDiv.innerHTML = "Muy insatisfecho (1 estrella)";
+                    break;
+                case '2':
+                    estrellasDiv.innerHTML = "Insatisfecho (2 estrellas)";
+                    break;
+                case '3':
+                    estrellasDiv.innerHTML = "Neutral (3 estrellas)";
+                    break;
+                case '4':
+                    estrellasDiv.innerHTML = "Satisfecho (4 estrellas)";
+                    break;
+                case '5':
+                    estrellasDiv.innerHTML = "Muy satisfecho (5 estrellas)";
+                    break;
+                default:
+                    estrellasDiv.innerHTML = calificacion + " estrellas";
+                    break;
+            }
+        }
+
+        function mostrarError(id, mensaje) {
+            var elementoError = document.getElementById(id);
+            elementoError.innerHTML = mensaje;
+        }
+
+        function limpiarMensajesError() {
+            var elementosError = document.querySelectorAll('.mensaje-error');
+            elementosError.forEach(function (elemento) {
+                elemento.innerHTML = '';
+            });
+        }
+    </script>
+</body>
+
+</html>
